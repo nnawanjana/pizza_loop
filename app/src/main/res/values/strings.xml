@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">pizza_loop</string>
+    <string name="title_activity_order_detail">OrderDetailActivity</string>
+</resources>
