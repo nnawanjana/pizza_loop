@@ -97,13 +97,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
+<RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
                     <android.support.v7.widget.CardView
+                        android:id="@+id/pan"
+                        android:clickable="true"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chkpan"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -134,11 +147,20 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/stuffed"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chkstuffed"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -164,16 +186,23 @@
 
                         </LinearLayout>
 
-
-
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/sausage"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chksausage"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -202,7 +231,7 @@
 
 
                     </android.support.v7.widget.CardView>
-
+</RadioGroup>
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -231,11 +260,22 @@
                     android:orientation="horizontal">
 
                     <android.support.v7.widget.CardView
+
+
+                        android:id="@+id/personal"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chkpersonal"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -253,6 +293,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:layout_marginBottom="10dp"
                                 android:text="Personal
                                         (Rs. 510)"
                                 android:textSize="15dp"
@@ -267,11 +308,20 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/medium"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chkmedium"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -289,6 +339,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:layout_marginBottom="10dp"
                                 android:text="Medium
                                     (Rs. 995)"
                                 android:textSize="15dp"
@@ -303,11 +354,20 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/large"
                         android:layout_width="140dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+                        <RadioButton
+                            android:id="@+id/chklarge"
+                            android:layout_gravity="bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="110dp"/>
 
                         <LinearLayout
                             android:layout_width="145dp"
@@ -322,6 +382,7 @@
                                 android:src="@drawable/largepz" />
 
                             <TextView
+                                android:layout_marginBottom="10dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -362,11 +423,14 @@
                     android:layout_marginTop="5dp">
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/bbq"
                         android:layout_width="160dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="12dp">
+
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -375,34 +439,57 @@
                             android:orientation="horizontal"
                             android:paddingLeft="5dp">
 
-                            <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:src="@drawable/bbq" />
 
-                            <LinearLayout
+                                <ImageView
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/bbq" />
+
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:layout_height="match_parent">
 
-                                <TextView
-                                    android:layout_width="match_parent"
+                                <CheckBox
+                                    android:id="@+id/chkbbq"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="BBQ Chicken"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:layout_marginTop="55dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:buttonTint="@android:color/holo_red_dark"
+                                    android:scaleX="0.60"
+                                    android:scaleY="0.60"/>
 
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:gravity="center"
-                                    android:text="(Rs. 310)"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="15dp" />
-                            </LinearLayout>
+                                    android:paddingBottom="5dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="BBQ Chicken"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="15dp"
+                                        android:layout_marginTop="-5dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:layout_marginTop="-5dp"
+                                        android:text="(Rs. 310)"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="15dp" />
+
+                                </LinearLayout>
+                            </RelativeLayout>
+
+
+
 
 
                         </LinearLayout>
@@ -411,6 +498,7 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/cheese"
                         android:layout_width="160dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="15dp"
@@ -428,6 +516,21 @@
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:src="@drawable/cheese" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            <CheckBox
+                                android:id="@+id/chkcheese"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="55dp"
+                                android:layout_marginLeft="60dp"
+                                android:buttonTint="@android:color/holo_red_dark"
+                                android:scaleX="0.60"
+                                android:scaleY="0.60"/>
+
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -452,7 +555,7 @@
                                     android:textColor="@android:color/black"
                                     android:textSize="15dp" />
                             </LinearLayout>
-
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -469,6 +572,7 @@
                 android:layout_marginTop="15dp">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cham"
                     android:layout_width="160dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="5dp"
@@ -487,6 +591,20 @@
                             android:layout_height="70dp"
                             android:src="@drawable/chum" />
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/chkchum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="60dp"
+                            android:buttonTint="@android:color/holo_red_dark"
+                            android:scaleX="0.60"
+                            android:scaleY="0.60"/>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -498,11 +616,13 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Chicken Ham"
+                                android:layout_marginTop="-5dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:layout_marginTop="-5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -510,6 +630,7 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="15dp" />
                         </LinearLayout>
+                        </RelativeLayout>
 
 
                     </LinearLayout>
@@ -518,6 +639,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/csausage"
                     android:layout_width="160dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
@@ -536,6 +658,21 @@
                             android:layout_height="70dp"
                             android:src="@drawable/csausage" />
 
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/chkausage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="60dp"
+                            android:buttonTint="@android:color/holo_red_dark"
+                            android:scaleX="0.60"
+                            android:scaleY="0.60"/>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -543,6 +680,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:layout_marginTop="-5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -552,6 +690,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:layout_marginTop="-5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -559,7 +698,7 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="15dp" />
                         </LinearLayout>
-
+                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -577,11 +716,14 @@
                 android:layout_marginTop="15dp">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/onion"
                     android:layout_width="160dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="5dp"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="12dp">
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -594,6 +736,20 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:src="@drawable/onion" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/chkonion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="60dp"
+                            android:buttonTint="@android:color/holo_red_dark"
+                            android:scaleX="0.60"
+                            android:scaleY="0.60"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -618,6 +774,7 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="15dp" />
                         </LinearLayout>
+                        </RelativeLayout>
 
 
                     </LinearLayout>
@@ -626,6 +783,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/tomato"
                     android:layout_width="160dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="15dp"
@@ -643,6 +801,20 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:src="@drawable/tomato" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/chktomato"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="60dp"
+                            android:buttonTint="@android:color/holo_red_dark"
+                            android:scaleX="0.60"
+                            android:scaleY="0.60"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -667,6 +839,7 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="15dp" />
                         </LinearLayout>
+                        </RelativeLayout>
 
 
                     </LinearLayout>
@@ -689,6 +862,7 @@
                 android:textStyle="bold"/>
 
 <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+    android:id="@+id/qty"
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     android:elevation="6dp"
@@ -716,6 +890,7 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/addtocart"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:text="ADD TO CART  "
@@ -729,6 +904,7 @@
 
 
                     <Button
+                        android:id="@+id/buynow"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
