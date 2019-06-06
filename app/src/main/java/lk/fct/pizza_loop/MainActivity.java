@@ -2,10 +2,12 @@ package lk.fct.pizza_loop;
 
 
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.Formatter;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -22,9 +24,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MainActivity extends AppCompatActivity implements ProductAdapter.OnItemClickListner{
 
-    private static final String URL= "http://192.168.8.101:8080/demo/all";
+
+    private static final String URL= "http://"+IPAddress.IPAddress+":8080/demo/all";
+
+
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
@@ -42,7 +49,11 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loaditem();
+
+
     }
+
+
 
     private void loaditem(){
 
@@ -62,10 +73,13 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
                         String name = productobject.getString("name");
                         String description = productobject.getString("description");
                         Double price = productobject.getDouble("price");
+                        Double smallprice = productobject.getDouble("smallprice");
+                        Double mediumprice = productobject.getDouble("mediumprice");
+                        Double largeprice = productobject.getDouble("largeprice");
 
 
 
-                        Pizza product = new Pizza(name, description, price, imageurl);
+                        Pizza product = new Pizza(name, description, price, imageurl,smallprice,mediumprice,largeprice);
                         productslist.add(product);
 
                     }
@@ -100,6 +114,10 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
         detailintent.putExtra("IMG", clickedItem.getImageURL());
         detailintent.putExtra("NAME", clickedItem.getName());
         detailintent.putExtra("DETAILS", clickedItem.getDescription());
+        detailintent.putExtra("PRICE", clickedItem.getPrice());
+        detailintent.putExtra("SMALLPRICE", clickedItem.getSmallprice());
+        detailintent.putExtra("MEDIUMPRICE", clickedItem.getMediumprice());
+        detailintent.putExtra("LARGEPRICE", clickedItem.getLargeprice());
 
 
         startActivity(detailintent);

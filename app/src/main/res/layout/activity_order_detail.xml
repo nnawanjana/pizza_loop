@@ -27,6 +27,18 @@
             android:background="@mipmap/ic_launcher"
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="price"
+            android:background="@drawable/button_round"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginRight="20dp"
+            android:textSize="18dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="70dp"/>
 
 
 
@@ -79,14 +91,41 @@
 
             </android.support.v7.widget.CardView>
 
-            <TextView
+            <android.support.v7.widget.CardView
+                android:id="@+id/selectcrust"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select crust*"
-                android:paddingLeft="10dp"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"/>
+                android:layout_height="50dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Select crust*"
+                        android:paddingLeft="10dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/crustmsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/holo_red_light"
+                        android:gravity="center_vertical"/>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
             <HorizontalScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -97,10 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-<RadioGroup
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+
                     <android.support.v7.widget.CardView
                         android:id="@+id/pan"
                         android:clickable="true"
@@ -231,21 +267,47 @@
 
 
                     </android.support.v7.widget.CardView>
-</RadioGroup>
+
                 </LinearLayout>
 
             </HorizontalScrollView>
 
-
-            <TextView
+            <android.support.v7.widget.CardView
+                android:id="@+id/selectsize"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select size*"
-                android:paddingLeft="10dp"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"/>
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Select size*"
+                        android:paddingLeft="10dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/sizemsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/holo_red_light"
+                        android:gravity="center_vertical"/>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
 
 
             <HorizontalScrollView
@@ -263,7 +325,7 @@
 
 
                         android:id="@+id/personal"
-                        android:layout_width="140dp"
+                        android:layout_width="145dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
@@ -287,19 +349,37 @@
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/smallpz" />
+                                android:src="@drawable/smallpz"
+                                />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_marginBottom="10dp"
-                                android:text="Personal
-                                        (Rs. 510)"
-                                android:textSize="15dp"
-                                android:textStyle="bold"
-                                android:layout_marginLeft="-20dp"
-                                android:textColor="@android:color/black"/>
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Personal"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/smallprice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:text="(Rs. 510)"
+                                    android:textSize="15dp"
+                                    android:textColor="@android:color/black"/>
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
@@ -309,7 +389,7 @@
 
                     <android.support.v7.widget.CardView
                         android:id="@+id/medium"
-                        android:layout_width="140dp"
+                        android:layout_width="145dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
@@ -335,17 +415,33 @@
                                 android:layout_height="60dp"
                                 android:src="@drawable/mediumpz" />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_marginBottom="10dp"
-                                android:text="Medium
-                                    (Rs. 995)"
-                                android:textSize="15dp"
-                                android:textStyle="bold"
-                                android:layout_marginLeft="-20dp"
-                                android:textColor="@android:color/black"/>
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Medium"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/mediumprice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:text="(Rs. 510)"
+                                    android:textSize="15dp"
+                                    android:textColor="@android:color/black"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -355,7 +451,7 @@
 
                     <android.support.v7.widget.CardView
                         android:id="@+id/large"
-                        android:layout_width="140dp"
+                        android:layout_width="145dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="5dp"
                         app:cardBackgroundColor="@android:color/white"
@@ -381,17 +477,33 @@
                                 android:layout_height="60dp"
                                 android:src="@drawable/largepz" />
 
-                            <TextView
-                                android:layout_marginBottom="10dp"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Large
-                                      (Rs. 1,770)"
-                                android:textSize="15dp"
-                                android:textStyle="bold"
-                                android:layout_marginLeft="-10dp"
-                                android:textColor="@android:color/black"/>
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Large"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:id="@+id/largeprice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:text="(Rs. 510)"
+                                    android:textSize="15dp"
+                                    android:textColor="@android:color/black"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -403,464 +515,521 @@
 
             </HorizontalScrollView>
 
-            <TextView
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/addextra"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add something extra"
-                android:paddingLeft="10dp"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"/>
-
-
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="5dp">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/bbq"
-                        android:layout_width="160dp"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="5dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Add something extra"
+                        android:paddingLeft="10dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/extramsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/holo_red_light"
+                        android:gravity="center_vertical"/>
+
+                </LinearLayout>
 
 
+
+            </android.support.v7.widget.CardView>
+
+
+            <!--
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_marginTop="15dp">
+
+                                <android.support.v7.widget.CardView
+                                    android:id="@+id/bbq"
+                                    android:layout_width="160dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginLeft="5dp"
+                                    app:cardBackgroundColor="@android:color/white"
+                                    app:cardCornerRadius="12dp">
+
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="5dp">
+
+
+                                            <ImageView
+                                                android:layout_width="70dp"
+                                                android:layout_height="70dp"
+                                                android:src="@drawable/bbq" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <CheckBox
+                                                android:id="@+id/chkbbq"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="55dp"
+                                                android:layout_marginLeft="60dp"
+                                                android:buttonTint="@android:color/holo_red_dark"
+                                                android:scaleX="0.60"
+                                                android:scaleY="0.60"/>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:gravity="center"
+                                                android:paddingBottom="5dp"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="BBQ Chicken"
+                                                    android:textColor="@android:color/black"
+                                                    android:textSize="15dp"
+                                                    android:layout_marginTop="-5dp"
+                                                    android:textStyle="bold" />
+
+                                                <TextView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:layout_marginTop="-5dp"
+                                                    android:text="(Rs. 310)"
+                                                    android:textColor="@android:color/black"
+                                                    android:textSize="15dp" />
+
+                                            </LinearLayout>
+                                        </RelativeLayout>
+
+
+
+
+
+                                    </LinearLayout>
+
+
+                                </android.support.v7.widget.CardView>
+
+                                <android.support.v7.widget.CardView
+                                    android:id="@+id/cheese"
+                                    android:layout_width="160dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginLeft="15dp"
+                                    app:cardBackgroundColor="@android:color/white"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="5dp">
+
+                                        <ImageView
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:src="@drawable/cheese" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                        <CheckBox
+                                            android:id="@+id/chkcheese"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="55dp"
+                                            android:layout_marginLeft="60dp"
+                                            android:buttonTint="@android:color/holo_red_dark"
+                                            android:scaleX="0.60"
+                                            android:scaleY="0.60"/>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="Cheese"
+                                                android:textColor="@android:color/black"
+                                                android:textSize="15dp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="(Rs. 140)"
+                                                android:textColor="@android:color/black"
+                                                android:textSize="15dp" />
+                                        </LinearLayout>
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+
+
+                                </android.support.v7.widget.CardView>
+
+
+                            </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingLeft="5dp">
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
 
-
-                                <ImageView
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:src="@drawable/bbq" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <CheckBox
-                                    android:id="@+id/chkbbq"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="55dp"
-                                    android:layout_marginLeft="60dp"
-                                    android:buttonTint="@android:color/holo_red_dark"
-                                    android:scaleX="0.60"
-                                    android:scaleY="0.60"/>
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/cham"
+                                android:layout_width="160dp"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="5dp"
+                                app:cardBackgroundColor="@android:color/white"
+                                app:cardCornerRadius="12dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
-                                    android:paddingBottom="5dp"
-                                    android:orientation="vertical">
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:text="BBQ Chicken"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="15dp"
-                                        android:layout_marginTop="-5dp"
-                                        android:textStyle="bold" />
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/chum" />
 
-                                    <TextView
+                                    <RelativeLayout
                                         android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                    <CheckBox
+                                        android:id="@+id/chkchum"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="55dp"
+                                        android:layout_marginLeft="60dp"
+                                        android:buttonTint="@android:color/holo_red_dark"
+                                        android:scaleX="0.60"
+                                        android:scaleY="0.60"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
                                         android:gravity="center"
-                                        android:layout_marginTop="-5dp"
-                                        android:text="(Rs. 310)"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="15dp" />
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Chicken Ham"
+                                            android:layout_marginTop="-5dp"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_marginTop="-5dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="(Rs. 310)"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                    </RelativeLayout>
+
 
                                 </LinearLayout>
-                            </RelativeLayout>
 
 
+                            </android.support.v7.widget.CardView>
 
-
-
-                        </LinearLayout>
-
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cheese"
-                        android:layout_width="160dp"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="15dp"
-                        app:cardBackgroundColor="@android:color/white"
-                        app:cardCornerRadius="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingLeft="5dp">
-
-                            <ImageView
-                                android:layout_width="70dp"
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/csausage"
+                                android:layout_width="160dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/cheese" />
+                                android:layout_marginLeft="15dp"
+                                app:cardBackgroundColor="@android:color/white"
+                                app:cardCornerRadius="12dp">
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                            <CheckBox
-                                android:id="@+id/chkcheese"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="55dp"
-                                android:layout_marginLeft="60dp"
-                                android:buttonTint="@android:color/holo_red_dark"
-                                android:scaleX="0.60"
-                                android:scaleY="0.60"/>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:gravity="center"
-                                    android:text="Cheese"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp">
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="(Rs. 140)"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="15dp" />
-                            </LinearLayout>
-                            </RelativeLayout>
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/csausage" />
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                    <CheckBox
+                                        android:id="@+id/chksausage1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="55dp"
+                                        android:layout_marginLeft="60dp"
+                                        android:buttonTint="@android:color/holo_red_dark"
+                                        android:scaleX="0.60"
+                                        android:scaleY="0.60"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_marginTop="-5dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Chicken Sausage"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_marginTop="-5dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="(Rs. 310)"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+
+                            </android.support.v7.widget.CardView>
+
 
                         </LinearLayout>
 
+  -->                      <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
 
-                    </android.support.v7.widget.CardView>
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/onion"
+                                android:layout_width="160dp"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="5dp"
+                                app:cardBackgroundColor="@android:color/white"
+                                app:cardCornerRadius="12dp">
 
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/onion" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                    <CheckBox
+                                        android:id="@+id/chkonion"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="55dp"
+                                        android:layout_marginLeft="60dp"
+                                        android:buttonTint="@android:color/holo_red_dark"
+                                        android:scaleX="0.60"
+                                        android:scaleY="0.60"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Onion"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="(Rs. 160)"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+
+
+                            </android.support.v7.widget.CardView>
+
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/tomato"
+                                android:layout_width="160dp"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="15dp"
+                                app:cardBackgroundColor="@android:color/white"
+                                app:cardCornerRadius="12dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/tomato" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                    <CheckBox
+                                        android:id="@+id/chktomato"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="55dp"
+                                        android:layout_marginLeft="60dp"
+                                        android:buttonTint="@android:color/holo_red_dark"
+                                        android:scaleX="0.60"
+                                        android:scaleY="0.60"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Tomato"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="(Rs. 140)"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+
+
+                            </android.support.v7.widget.CardView>
+
+
+                        </LinearLayout>
+            -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/addqty"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Quantity"
+                        android:paddingLeft="10dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/qtymsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/holo_red_light"
+                        android:gravity="center_vertical"/>
 
                 </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="15dp">
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cham"
-                    android:layout_width="160dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="5dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingLeft="5dp">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/chum" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/chkchum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginLeft="60dp"
-                            android:buttonTint="@android:color/holo_red_dark"
-                            android:scaleX="0.60"
-                            android:scaleY="0.60"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Chicken Ham"
-                                android:layout_marginTop="-5dp"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_marginTop="-5dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="(Rs. 310)"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp" />
-                        </LinearLayout>
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/csausage"
-                    android:layout_width="160dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="15dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingLeft="5dp">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/csausage" />
-
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/chkausage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginLeft="60dp"
-                            android:buttonTint="@android:color/holo_red_dark"
-                            android:scaleX="0.60"
-                            android:scaleY="0.60"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_marginTop="-5dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Chicken Sausage"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_marginTop="-5dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="(Rs. 310)"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp" />
-                        </LinearLayout>
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="15dp">
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/onion"
-                    android:layout_width="160dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="5dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="12dp">
 
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingLeft="5dp">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/onion" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/chkonion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginLeft="60dp"
-                            android:buttonTint="@android:color/holo_red_dark"
-                            android:scaleX="0.60"
-                            android:scaleY="0.60"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Onion"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="(Rs. 160)"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp" />
-                        </LinearLayout>
-                        </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
 
-                    </LinearLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/tomato"
-                    android:layout_width="160dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="15dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingLeft="5dp">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/tomato" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/chktomato"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginLeft="60dp"
-                            android:buttonTint="@android:color/holo_red_dark"
-                            android:scaleX="0.60"
-                            android:scaleY="0.60"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Tomato"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="(Rs. 160)"
-                                android:textColor="@android:color/black"
-                                android:textSize="15dp" />
-                        </LinearLayout>
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quantity"
-                android:paddingLeft="10dp"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"/>
-
+<!--
 <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
     android:id="@+id/qty"
     android:layout_width="100dp"
@@ -875,6 +1044,98 @@
 
 </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
+-->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_blue_light"
+                app:cardCornerRadius="5dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="-"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:textSize="25dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:layout_weight="1"
+                        android:textSize="25dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="+"
+                        android:padding="10dp"
+                        android:textSize="25dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginTop="50dp"
+    app:cardBackgroundColor="#99ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Total Price : "
+            android:textSize="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/totprice"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="20dp"/>
+
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -883,6 +1144,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <LinearLayout
+                    android:id="@+id/addtocart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -890,7 +1152,6 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/addtocart"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:text="ADD TO CART  "
