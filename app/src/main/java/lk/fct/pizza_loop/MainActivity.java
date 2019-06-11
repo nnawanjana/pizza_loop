@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.Formatter;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,13 +32,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements ProductAdapter.OnItemClickListner{
 
 
-    private static final String URL= "http://"+IPAddress.IPAddress+":8080/demo/all";
+    private static final String URL= "http://"+IPAddress.IPAddress+":8080/demo/all/";
 
+    private static final String URL1= "http://"+IPAddress.IPAddress+":8080/demo/cart";
 
+   // List<Cart> cartList;
+    JSONArray products;
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     List<Pizza> productslist;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,58 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loaditem();
+
+        RelativeLayout cart=(RelativeLayout)findViewById(R.id.gotocart);
+
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(products.length()==0){
+                    Intent intent = new Intent(MainActivity.this, EmptyCart.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+               try {
+
+                    products  = new JSONArray(response);
+
+                    //System.out.println("aaaaaaaaaaaaaaaaaaaaaa"+products.length());
+
+                    TextView badge=(TextView)findViewById(R.id.cart_badge);
+
+                    if(products.length()==0){
+                        badge.setVisibility(View.GONE);
+                    }else {
+                        badge.setText("" + products.length());
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        Volley.newRequestQueue(this).add(stringRequest);
 
 
     }
@@ -81,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
 
                         Pizza product = new Pizza(name, description, price, imageurl,smallprice,mediumprice,largeprice);
                         productslist.add(product);
+                        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+URL);
 
                     }
 
@@ -88,17 +148,14 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
                     recyclerView.setAdapter(adapter);
                     adapter.setOnItemClickListener(MainActivity.this);
 
-                    //   progressDialog.dismiss();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    //Toast.makeText(HomeActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         });

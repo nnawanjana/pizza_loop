@@ -831,6 +831,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
                 intent.putExtra("IMAGE",intent1.getStringExtra("IMG"));
                 intent.putExtra("NAME",Pname.getText().toString());
+                intent.putExtra("QTY",Integer.toString(qty));
                 intent.putExtra("CRUST",crust);
                 intent.putExtra("EXTRA",extra);
                 intent.putExtra("SIZE",pizzasize);

@@ -10,6 +10,17 @@ public class Pizza {
     Double mediumprice;
     Double largeprice;
 
+    public Pizza(String name, String description, Double price, String imageurl, Double smallprice,Double mediumprice,Double largeprice) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imageURL = imageurl;
+        this.smallprice = smallprice;
+        this.mediumprice = mediumprice;
+        this.largeprice = largeprice;
+
+    }
+
     public Double getSmallprice() {
         return smallprice;
     }
@@ -34,16 +45,6 @@ public class Pizza {
         this.largeprice = largeprice;
     }
 
-    public Pizza(String name, String description, Double price, String imageurl, Double smallprice,Double mediumprice,Double largeprice) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imageURL = imageurl;
-        this.smallprice = smallprice;
-        this.mediumprice = mediumprice;
-        this.largeprice = largeprice;
-
-    }
 
     public int getPizzaId() {
         return pizzaId;
