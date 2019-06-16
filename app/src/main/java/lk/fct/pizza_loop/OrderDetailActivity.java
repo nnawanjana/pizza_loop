@@ -842,6 +842,16 @@ public class OrderDetailActivity extends AppCompatActivity {
             }
         });
 
+        buynow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String open="orderdetail";
+                Intent intent=new Intent(OrderDetailActivity.this,AddAddress.class);
+                intent.putExtra("ORDER",open);
+                startActivity(intent);
+            }
+        });
+
 
 
 

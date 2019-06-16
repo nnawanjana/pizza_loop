@@ -14,14 +14,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EmptyCart"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".VisaCard"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".AddAddress"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+
+        </activity>
+        <activity
+            android:name=".OrderConfirm"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
+        </activity>
+        <activity
+            android:name=".EmptyCart"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".DeletePopup"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".CartActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+
+        </activity>
         <activity
             android:name=".ConfirmPopup"
             android:theme="@style/AppTheme.CustomTheme" />
@@ -33,17 +51,15 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
         </activity>
     </application>
 

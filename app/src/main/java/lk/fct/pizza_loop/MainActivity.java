@@ -1,6 +1,7 @@
 package lk.fct.pizza_loop;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.Formatter;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         loaditem();
 
@@ -140,9 +144,14 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
 
                         Pizza product = new Pizza(name, description, price, imageurl,smallprice,mediumprice,largeprice);
                         productslist.add(product);
-                        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+URL);
+                        //System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+URL);
 
                     }
+
+                    Context context=recyclerView.getContext();
+
+                    LayoutAnimationController animationController= AnimationUtils.loadLayoutAnimation(context,R.anim.layout_animation_fall_down);
+                    recyclerView.setLayoutAnimation(animationController);
 
                     adapter = new ProductAdapter(MainActivity.this, productslist);
                     recyclerView.setAdapter(adapter);
