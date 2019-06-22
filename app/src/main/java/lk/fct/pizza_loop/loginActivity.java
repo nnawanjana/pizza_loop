@@ -1,9 +1,9 @@
 package lk.fct.pizza_loop;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,14 +21,15 @@ import org.json.JSONObject;
 
 public class loginActivity extends AppCompatActivity {
 
-    private EditText username1;
-    private EditText password1;
-    private Button login1;
+    EditText username1;
+    EditText password1;
+    Button login1;
 
-    String user;
-    String password;
+//    String user;
+//    String password;
     String Username2;
     String Password2;
+
 
 
     @Override
@@ -40,8 +41,11 @@ public class loginActivity extends AppCompatActivity {
         password1=(EditText) findViewById(R.id.password);
         login1=(Button) findViewById(R.id.login);
 
-        user=username1.getText().toString();
-        password=password1.getText().toString();
+//        user= username1.getText().toString();
+//        password=password1.getText().toString();
+
+
+
 
         login1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +55,6 @@ public class loginActivity extends AppCompatActivity {
                 }else if(password1.length()==0) {
                     password1.setError("Enter Password");
                 }
-
 
                 login();
 
@@ -64,9 +67,7 @@ public class loginActivity extends AppCompatActivity {
     private void login(){
 
 
-
-        String URL1="http://"+IPAddress.IPAddress+":8080/demo/findByUserName?username="+user+"";
-
+        String URL1="http://"+IPAddress.IPAddress+":8080/demo/findByUserName?username="+username1.getText().toString()+"";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
             @Override
@@ -87,7 +88,7 @@ public class loginActivity extends AppCompatActivity {
 
                         try {
 
-                            if (Password2.equals(password)) {
+                            if (Password2.equals(password1.getText().toString())) {
                                 Intent intent=new Intent(loginActivity.this,MainActivity.class);
                                 startActivity(intent);
 
