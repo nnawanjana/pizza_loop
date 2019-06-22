@@ -846,8 +846,10 @@ public class OrderDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String open="orderdetail";
-                Intent intent=new Intent(OrderDetailActivity.this,AddAddress.class);
+                String price="Rs."+cartprice;
+                Intent intent=new Intent(OrderDetailActivity.this,PaymentPopup.class);
                 intent.putExtra("ORDER",open);
+                intent.putExtra("PRICE",price);
                 startActivity(intent);
             }
         });
