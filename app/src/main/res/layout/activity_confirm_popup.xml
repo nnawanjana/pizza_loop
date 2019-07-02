@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmPopup"
-    android:background="#aaf7fd">
+    android:background="#aaf7fd"
+    tools:context=".ConfirmPopup">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/confimimage"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="2dp">
+            android:layout_marginTop="2dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/confirmname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Name"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:layout_marginLeft="10dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/confirmcrust"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="crust"
                 android:textSize="19dp"
-                android:layout_marginLeft="10dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Extra Toppings :"
-            android:textSize="19dp"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Extra Toppings :"
+                android:textSize="19dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/confirmextra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:text="Extra "
-                android:textSize="17dp"
                 android:textColor="@android:color/black"
-                android:layout_marginLeft="20dp"/>
+                android:textSize="17dp" />
 
             <TextView
                 android:id="@+id/confirmprice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="price"
-                android:textSize="23dp"
-                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
+                android:text="price"
                 android:textColor="@android:color/black"
-                android:layout_marginLeft="10dp"/>
+                android:textSize="23dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -79,38 +79,36 @@
     </LinearLayout>
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="bottom"
-    android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/gohome"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="HOME"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textColor="#FFFFFF"
-        android:layout_weight="1"
-        android:background="@android:color/holo_red_dark"
-        />
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/cart"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Go to cart"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_weight="1"
-        android:textColor="#485F70"
-        android:background="@android:color/white"
-        />
+        <Button
+            android:id="@+id/gohome"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"
+            android:text="HOME"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/cart"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:text="Go to cart"
+            android:textColor="#485F70"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
 
-</LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

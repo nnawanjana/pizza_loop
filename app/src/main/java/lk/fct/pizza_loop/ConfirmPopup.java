@@ -9,24 +9,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
-import java.util.List;
 
 public class ConfirmPopup extends AppCompatActivity {
 
-
-   // private static final String URL= "http://"+IPAddress.IPAddress+":8080/demo/addtocart";
-
-
-    List<Cart> productslist;
     String pizzaname;
     String imageurl;
     String size;
@@ -35,45 +27,45 @@ public class ConfirmPopup extends AppCompatActivity {
     String pprice;
     String qty;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_popup);
 
-        DisplayMetrics dm=new DisplayMetrics();
+        DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.6),(int)(height*.5));
+        getWindow().setLayout((int) (width * .6), (int) (height * .5));
 
-        ImageView image=(ImageView)findViewById(R.id.confimimage);
-        TextView name=(TextView)findViewById(R.id.confirmname);
-        TextView extra=(TextView)findViewById(R.id.confirmextra);
-        TextView crust=(TextView)findViewById(R.id.confirmcrust);
-        TextView price=(TextView)findViewById(R.id.confirmprice);
+        ImageView image = (ImageView) findViewById(R.id.confimimage);
+        TextView name = (TextView) findViewById(R.id.confirmname);
+        TextView extra = (TextView) findViewById(R.id.confirmextra);
+        TextView crust = (TextView) findViewById(R.id.confirmcrust);
+        TextView price = (TextView) findViewById(R.id.confirmprice);
 
         Intent intent = getIntent();
 
-        imageurl=intent.getStringExtra("IMAGE");
-        pizzaname=getIntent().getExtras().getString("NAME");
-        size=getIntent().getExtras().getString("SIZE");
-        pextra=getIntent().getExtras().getString("EXTRA");
-        pcrust=getIntent().getExtras().getString("CRUST");
-        pprice=getIntent().getExtras().getString("PRICE");
-        qty=getIntent().getExtras().getString("QTY");
+        imageurl = intent.getStringExtra("IMAGE");
+        pizzaname = getIntent().getExtras().getString("NAME");
+        size = getIntent().getExtras().getString("SIZE");
+        pextra = getIntent().getExtras().getString("EXTRA");
+        pcrust = getIntent().getExtras().getString("CRUST");
+        pprice = getIntent().getExtras().getString("PRICE");
+        qty = getIntent().getExtras().getString("QTY");
+
 
 
         Glide.with(ConfirmPopup.this).load(imageurl).into(image);
-        name.setText((pizzaname)+" "+(size));
+        name.setText((pizzaname) + " " + (size));
         extra.setText(pextra);
-        crust.setText("Crust : "+pcrust);
-        price.setText("RS. "+pprice);
+        crust.setText("Crust : " + pcrust);
+        price.setText("RS. " + pprice);
 
-        Button cart=(Button)findViewById(R.id.cart);
-        Button home=(Button)findViewById(R.id.gohome);
+        Button cart = (Button) findViewById(R.id.cart);
+        Button home = (Button) findViewById(R.id.gohome);
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,20 +92,18 @@ public class ConfirmPopup extends AppCompatActivity {
 
     }
 
-    private void addcart(){
-        String URL1="http://"+IPAddress.IPAddress+":8080/demo/addtocart?cartId=&imageUrl="+imageurl+"&pizzaname="+pizzaname+"&pizzacrust="+pcrust+"&pizzasize="+size+"&extra="+pextra+"&qty="+qty+"&totalprice="+pprice+"&status=1";
+    private void addcart() {
+        String URL1 = "http://" + IPAddress.IPAddress + ":8080/demo/addtocart?cartId=&imageUrl=" + imageurl + "&pizzaname=" + pizzaname + "&pizzacrust=" + pcrust + "&pizzasize=" + size + "&extra=" + pextra + "&qty=" + qty + "&totalprice=" + pprice + "&userID="+loginActivity.id+"&status=1";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
 
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         });

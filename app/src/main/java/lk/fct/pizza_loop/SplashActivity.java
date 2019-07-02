@@ -9,14 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView logo;
-    private static int splashTimeOut=3000;
-
+    private static int splashTimeOut = 3000;
 
 
     Connection_Detector connection_detector;
@@ -27,23 +25,21 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        connection_detector=new Connection_Detector(this);
+        connection_detector = new Connection_Detector(this);
 
-        logo=(ImageView)findViewById(R.id.logo);
+        logo = (ImageView) findViewById(R.id.logo);
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                if (connection_detector.isConnected())
-                {
-                    Intent i=new Intent(SplashActivity.this,loginActivity.class);
+                if (connection_detector.isConnected()) {
+                    Intent i = new Intent(SplashActivity.this, loginActivity.class);
                     startActivity(i);
                     finish();
 
-                }else
-                {
+                } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(SplashActivity.this).create();
                     alertDialog.setTitle("Error");
                     alertDialog.setMessage("Check your internet connection and try again.");
@@ -59,9 +55,9 @@ public class SplashActivity extends AppCompatActivity {
 
 
             }
-        },splashTimeOut);
+        }, splashTimeOut);
 
-        Animation myanim =AnimationUtils.loadAnimation( this,R.anim.welcomeanimation);
+        Animation myanim = AnimationUtils.loadAnimation(this, R.anim.welcomeanimation);
         logo.startAnimation(myanim);
     }
 

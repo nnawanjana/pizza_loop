@@ -7,10 +7,10 @@
     tools:context=".VisaCard">
 
     <com.craftman.cardform.CardForm
-        android:layout_marginTop="20dp"
         android:id="@+id/cardform"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
 
     </com.craftman.cardform.CardForm>
 

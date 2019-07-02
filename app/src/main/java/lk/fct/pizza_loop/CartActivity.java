@@ -1,17 +1,15 @@
 package lk.fct.pizza_loop;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -26,15 +24,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartActivity extends AppCompatActivity implements CartAdapter.OnItemClickListner{
+public class CartActivity extends AppCompatActivity implements CartAdapter.OnItemClickListner {
 
-    private static final String URL= "http://"+IPAddress.IPAddress+":8080/demo/cart";
+    private static final String URL = "http://" + IPAddress.IPAddress + ":8080/demo/findByUserID?userid="+loginActivity.id+"";
 
     private RecyclerView recyclerView;
     private CartAdapter adapter;
     List<Cart> cartlist;
 
-    double allprice=0.0;
+    double allprice = 0.0;
 
     String imageurl;
     String name;
@@ -57,7 +55,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ImageView back=(ImageView) findViewById(R.id.backarrow);
+        ImageView back = (ImageView) findViewById(R.id.backarrow);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,15 +66,15 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
 
         loadcart();
 
-        Button pay=(Button)findViewById(R.id.pay);
+        Button pay = (Button) findViewById(R.id.pay);
 
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CartActivity.this,PaymentPopup.class);
-                String Open="cart";
-                intent.putExtra("ORDER",Open);
-                intent.putExtra("PAY","Rs."+Double.toString(allprice));
+                Intent intent = new Intent(CartActivity.this, PaymentPopup.class);
+                String Open = "cart";
+                intent.putExtra("ORDER", Open);
+                intent.putExtra("PAY", "Rs." + Double.toString(allprice));
                 startActivity(intent);
             }
         });
@@ -91,11 +89,11 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
 
                 try {
 
-                    JSONArray products  = new JSONArray(response);
+                    JSONArray products = new JSONArray(response);
 
-                    for (int i =0; i<products.length(); i++){
+                    for (int i = 0; i < products.length(); i++) {
 
-                        JSONObject productobject  = products.getJSONObject(i);
+                        JSONObject productobject = products.getJSONObject(i);
 
                         int cartid = productobject.getInt("cartId");
                         String imageurl = productobject.getString("imageUrl");
@@ -107,15 +105,14 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
                         double totalprice = productobject.getDouble("totalprice");
 
 
-                        allprice=allprice+totalprice;
+                        allprice = allprice + totalprice;
 
-                        TextView totprice=(TextView)findViewById(R.id.totalprice);
-                        totprice.setText("RS. "+allprice);
+                        TextView totprice = (TextView) findViewById(R.id.totalprice);
+                        totprice.setText("RS. " + allprice);
 
 
-                        Cart product = new Cart(cartid,imageurl,pizza_name, pizza_crust, pizza_size, extra,qty, totalprice);
+                        Cart product = new Cart(cartid, imageurl, pizza_name, pizza_crust, pizza_size, extra, qty, totalprice);
                         cartlist.add(product);
-
 
 
                     }
@@ -147,73 +144,44 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
 
         Cart clickedItem = cartlist.get(position);
 
-        int id=clickedItem.getCartId();
+        int id = clickedItem.getCartId();
 
         Intent intent = new Intent(CartActivity.this, DeletePopup.class);
-        intent.putExtra("CARTID",Integer.toString(id));
+        intent.putExtra("CARTID", Integer.toString(id));
         startActivity(intent);
 
 
-/*
 
-        String URL1="http://"+IPAddress.IPAddress+":8080/demo/deleteByCartId?id="+id+"";
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        Volley.newRequestQueue(this).add(stringRequest);
-*/
     }
+
     int id;
+
     @Override
     public void onCartItemClick(int position) {
         Cart clickedItem = cartlist.get(position);
-        id=clickedItem.getCartId();
-        PName=clickedItem.getPizza_name();
+        id = clickedItem.getCartId();
+        PName = clickedItem.getPizza_name();
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+PName);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + PName);
 
         findCartItemByname();
 
-//        Intent intent = new Intent(CartActivity.this, OrderDetailEditActivity.class);
-//        intent.putExtra("CART_ID",Integer.toString(id));
-//        intent.putExtra("IMG", imageurl);
-//        intent.putExtra("NAME", name);
-//        intent.putExtra("DETAILS", description);
-//        intent.putExtra("PRICE", price);
-//        intent.putExtra("SMALLPRICE", smallprice);
-//        intent.putExtra("MEDIUMPRICE", mediumprice);
-//        intent.putExtra("LARGEPRICE", largeprice);
-//        System.out.println("222222222222222222222222222222222222222222222222222222222"+largeprice);
-//        startActivity(intent);
     }
 
-    private void findCartItemByname(){
-        String URL1="http://"+IPAddress.IPAddress+":8080/demo/findByName?name="+PName+"";
+    private void findCartItemByname() {
+        String URL1 = "http://" + IPAddress.IPAddress + ":8080/demo/findByName?name=" + PName + "";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
 
-                    JSONArray products  = new JSONArray(response);
+                    JSONArray products = new JSONArray(response);
 
-                    for (int i =0; i<products.length(); i++){
+                    for (int i = 0; i < products.length(); i++) {
 
-                        JSONObject productobject  = products.getJSONObject(i);
+                        JSONObject productobject = products.getJSONObject(i);
 
-                        //int id = productobject.getInt("pizzaId");
                         imageurl = productobject.getString("imageUrl");
                         name = productobject.getString("name");
                         description = productobject.getString("description");
@@ -222,10 +190,8 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
                         mediumprice = productobject.getDouble("mediumprice");
                         largeprice = productobject.getDouble("largeprice");
 
-                        System.out.println("222222222222222222222222222222222222222222222"+name);
-
                         Intent intent = new Intent(CartActivity.this, OrderDetailEditActivity.class);
-                        intent.putExtra("CART_ID",Integer.toString(id));
+                        intent.putExtra("CART_ID", Integer.toString(id));
                         intent.putExtra("IMG", imageurl);
                         intent.putExtra("NAME", name);
                         intent.putExtra("DETAILS", description);
@@ -234,8 +200,6 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
                         intent.putExtra("MEDIUMPRICE", mediumprice);
                         intent.putExtra("LARGEPRICE", largeprice);
                         startActivity(intent);
-
-
 
 
                     }
@@ -248,13 +212,19 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnIte
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(CartActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         });
 
         Volley.newRequestQueue(this).add(stringRequest);
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(CartActivity.this, "Please click the Back Arrow", Toast.LENGTH_LONG).show();
 
     }
 

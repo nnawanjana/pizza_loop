@@ -7,16 +7,13 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.craftman.cardform.Card;
-import com.craftman.cardform.CardForm;
-import com.craftman.cardform.OnPayBtnClickListner;
-
 public class OrderConfirm extends AppCompatActivity {
 
     CardView address, payment;
@@ -43,12 +40,12 @@ public class OrderConfirm extends AppCompatActivity {
         postalCode = (TextView) findViewById(R.id.postal_code);
         phonNumber = (TextView) findViewById(R.id.phonenumber);
 
-        cardnumber=(TextView)findViewById(R.id.cardnumber);
+        cardnumber = (TextView) findViewById(R.id.cardnumber);
         TextView addcard = (TextView) findViewById(R.id.addcard);
-        payment=(CardView)findViewById(R.id.payment);
+        payment = (CardView) findViewById(R.id.payment);
 
-        price=(TextView) findViewById(R.id.price);
-        Button pay=(Button)findViewById(R.id.pay);
+        price = (TextView) findViewById(R.id.price);
+        Button pay = (Button) findViewById(R.id.pay);
 
         addaddress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +84,7 @@ public class OrderConfirm extends AppCompatActivity {
         add1_postalcode = getIntent().getStringExtra("POSTALCODE1");
 
         String totprice = getIntent().getStringExtra("PRICE");
-        price.setText(""+totprice);
+        price.setText("" + totprice);
 
         name.setText(add1_name);
         address1.setText((add1_street) + ", " + (add1_unit));
@@ -96,15 +93,14 @@ public class OrderConfirm extends AppCompatActivity {
         phonNumber.setText(add1_mobile);
 
 
-        cnumber1=getIntent().getStringExtra("CARD NUMBER");
+        cnumber1 = getIntent().getStringExtra("CARD NUMBER");
 
         cardnumber.setText("**** **** **** " + cnumber1);
 
-        }
+    }
 
-    private void delcart()
-    {
-        String URL= "http://"+IPAddress.IPAddress+":8080/demo/deleteByStatus?status=1";
+    private void delcart() {
+        String URL = "http://" + IPAddress.IPAddress + ":8080/demo/deleteByUserID?userid="+loginActivity.id+"";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
@@ -114,7 +110,6 @@ public class OrderConfirm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         });
@@ -123,4 +118,9 @@ public class OrderConfirm extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(OrderConfirm.this, "You Can not go back!", Toast.LENGTH_LONG).show();
     }
+
+}

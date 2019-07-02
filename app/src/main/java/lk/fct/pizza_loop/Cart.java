@@ -10,6 +10,7 @@ public class Cart {
     int qty;
     double totalprice;
     String status;
+    String userID;
 
 
     public Cart(int cartId, String imageUrl,String pizza_name, String pizza_crust, String pizza_size, String extra,int qty,  double totalprice) {
@@ -21,6 +22,14 @@ public class Cart {
         this.extra = extra;
         this.qty = qty;
         this.totalprice = totalprice;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getStatus() {
